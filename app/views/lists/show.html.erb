@@ -6,12 +6,22 @@
 <ul class="list-group">
   <% @list.bookmarks.each do |bookmark| %>
     <li class="list-group-item">
-      <%= bookmark.comment %>
+      <strong> <%= "Title:" %> </strong><%=   bookmark.movie.title %>
+    </li>
+    <li class="list-group-item">
+      <strong> <%= "Overview:" %> </strong><%=   bookmark.movie.overview %>
+    </li>
+    <li class="list-group-item">
+      <strong> <%= "Rating:" %> </strong><%=   bookmark.movie.rating %>
+    </li>
+    <li>
+      <strong> <%= "Comment:" %> </strong> <%= bookmark.comment %>
       <%= link_to "Delete",
         bookmark_path(bookmark),
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
       %>
     </li>
+
   <% end %>
 </ul>
 <br>
